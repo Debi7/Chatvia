@@ -1,12 +1,13 @@
 // import { useState } from 'react'
-import './App.module.css'
+import SignIn from "./pages/SignIn/SignIn.jsx";
+import styles from "./App.module.css";
 
 function App() {
 
   return (
     <>
-      <div>
-
+      <div className={styles.app}>
+        <SignIn />
       </div>
 
     </>
