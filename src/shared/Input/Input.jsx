@@ -1,17 +1,24 @@
 import PropTypes from "prop-types";
+import { forwardRef } from 'react';
+import { clsx } from 'clsx';
 import styles from "./Input.module.css";
 
-const Input = ({ label, onChange, value, className, placeholder, ...rest }) => (
-  <label className={className} {...rest}>
-    {label && <span className={styles["input-label"]}>{label}</span>}
-    <div className={styles["input-group"]}>
-      <div className={styles["img-box"]}>
-        <img width="10px" height="10px" alt="img"></img>
+const Input = forwardRef(function Input(props, ref) {
+  const { label, className, ...rest } = props;
+
+  return (
+    <label>
+      {label && <span className={styles["input-label"]}>{label}</span>}
+      <div className={styles["input-group"]}>
+        <div className={styles["img-box"]}>
+          <img width="10px" height="10px" alt="img"></img>
+        </div>
+        <input {...rest} className={clsx(styles.input, className)} />
       </div>
-      <input className={styles.input} onChange={onChange} value={value} placeholder={placeholder} />
-    </div>
-  </label>
-);
+    </label>
+  );
+});
+
 
 Input.propTypes = {
   label: PropTypes.node,

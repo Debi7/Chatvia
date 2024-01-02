@@ -21,17 +21,32 @@ const SignIn = () => {
         <div className={styles["wrapper-form"]}>
           <div className={styles["wrapper-input"]}>
             <Input
+              onChange={() => { }}
+              onClick={() => { }}
+              onBlur={() => { }}
+              // value={value}
+              // ref={ref}
+              type={"email"}
               placeholder={"admin@themesbrand.com"}
               label={"Username"}
             />
           </div>
           <div className={styles["wrapper-input"]}>
             <Input
+              onChange={() => { }}
+              onClick={() => { }}
+              onBlur={() => { }}
+              // value={value}
+              // ref={ref}
+              type={"password"}
               placeholder={"......"}
               label={"Password"}
             />
           </div>
-          <Button className={styles.btn}>
+          <Button
+            onClick={() => { }}
+            onChange={() => { }}
+            className={styles.btn}>
             Sign in
           </Button>
         </div>
