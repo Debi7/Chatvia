@@ -37,3 +37,17 @@
   padding: 24px;
   background-color: white;
 }
+
+.btn {
+  margin: 0 auto;
+  padding: 5px 130px;
+  background-color: blue;
+  color: #ffff;
+  cursor: pointer;
+}
+
+.placeholderWeight {
+  font-size: 30px;
+  font-weight: 600;
+  color: #c60e54;
+}

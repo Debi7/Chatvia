@@ -26,6 +26,7 @@ Input.propTypes = {
   value: PropTypes.string,
   className: PropTypes.string,
   placeholder: PropTypes.string,
+  placeholderWeight: PropTypes.string,
 };
 
 export default Input;

@@ -3,6 +3,7 @@ import Button from "../../shared/Button/Button.jsx";
 import Input from "../../shared/Input/Input.jsx";
 import styles from "./SignIn.module.css";
 
+
 const SignIn = () => {
   // console.log();
 
@@ -40,6 +41,7 @@ const SignIn = () => {
               // ref={ref}
               type={"password"}
               placeholder={"......"}
+              placeholderWeight={styles.placeholderWeight}
               label={"Password"}
             />
           </div>
