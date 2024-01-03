@@ -5,6 +5,9 @@
 }
 
 .app {
-  width: 1152px;
-  height: 645px;
+  /* display: flex;  TODO из-за флексов и т.д. исчезает Лого, поэтому это закоментила и надо убрать
+  justify-content: center;
+  align-items: center; */
+  width: 100%;
+  height: 100vh;
 }

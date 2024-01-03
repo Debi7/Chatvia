@@ -1,10 +1,12 @@
 // import { useState } from "react";
 import Button from "../../shared/Button/Button.jsx";
 import Input from "../../shared/Input/Input.jsx";
+import Checkbox from "../../shared/Checkbox/Checkbox.jsx";
+
 import styles from "./SignIn.module.css";
 
+
 const SignIn = () => {
-  // console.log();
 
   return (
     <>
@@ -21,17 +23,39 @@ const SignIn = () => {
         <div className={styles["wrapper-form"]}>
           <div className={styles["wrapper-input"]}>
             <Input
+              // onChange={}
+              // onClick={}
+              // onBlur={}
+              // value={value}
+              // ref={ref}
+              type={"email"}
               placeholder={"admin@themesbrand.com"}
               label={"Username"}
             />
           </div>
           <div className={styles["wrapper-input"]}>
             <Input
-              placeholder={"......"}
+              // onChange={}
+              // onClick={}
+              // onBlur={}
+              // value={value}
+              // ref={ref}
+              type={"password"}
+              placeholder={"....."}
+              className={styles.placeholderSignIn}
               label={"Password"}
             />
           </div>
-          <Button className={styles.btn}>
+          <div>
+            <Checkbox
+              className={styles.checkbox__text}
+              checkboxText={"Remember me"}
+            />
+          </div>
+          <Button
+            type={"submit"}
+            // onClick={() => { }}
+            className={styles.btn}>
             Sign in
           </Button>
         </div>
