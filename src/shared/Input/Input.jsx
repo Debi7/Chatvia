@@ -13,7 +13,8 @@ const Input = forwardRef(function Input(props, ref) {
         <div className={styles["img-box"]}>
           <img width="10px" height="10px" alt="img"></img>
         </div>
-        <input {...rest} className={clsx(styles.input, className)} />
+        <input {...rest} 
+          className={clsx(styles.input, className)} ref={ref} />
       </div>
     </label>
   );

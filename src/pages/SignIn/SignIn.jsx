@@ -1,11 +1,12 @@
 // import { useState } from "react";
 import Button from "../../shared/Button/Button.jsx";
 import Input from "../../shared/Input/Input.jsx";
+import Checkbox from "../../shared/Checkbox/Checkbox.jsx";
+
 import styles from "./SignIn.module.css";
 
 
 const SignIn = () => {
-  // console.log();
 
   return (
     <>
@@ -22,9 +23,9 @@ const SignIn = () => {
         <div className={styles["wrapper-form"]}>
           <div className={styles["wrapper-input"]}>
             <Input
-              onChange={() => { }}
-              onClick={() => { }}
-              onBlur={() => { }}
+              // onChange={}
+              // onClick={}
+              // onBlur={}
               // value={value}
               // ref={ref}
               type={"email"}
@@ -34,20 +35,26 @@ const SignIn = () => {
           </div>
           <div className={styles["wrapper-input"]}>
             <Input
-              onChange={() => { }}
-              onClick={() => { }}
-              onBlur={() => { }}
+              // onChange={}
+              // onClick={}
+              // onBlur={}
               // value={value}
               // ref={ref}
               type={"password"}
-              placeholder={"......"}
-              placeholderWeight={styles.placeholderWeight}
+              placeholder={"....."}
+              className={styles.placeholderSignIn}
               label={"Password"}
             />
           </div>
+          <div>
+            <Checkbox
+              className={styles.checkbox__text}
+              checkboxText={"Remember me"}
+            />
+          </div>
           <Button
-            onClick={() => { }}
-            onChange={() => { }}
+            type={"submit"}
+            // onClick={() => { }}
             className={styles.btn}>
             Sign in
           </Button>
