@@ -1,13 +1,15 @@
 import PropTypes from "prop-types";
-// import { clsx } from 'clsx';
+import styles from "../../pages/Signin/SignIn.module.css";
+
+import { clsx } from 'clsx';
 
 const Checkbox = (props) => {
   const { checkboxText, ...rest } = props;
   return (
     <div>
-      <label>
+      <label className={clsx(styles["wrapper_checkbox"])}>
         <input {...rest} type="checkbox" />
-        <span>{checkboxText}</span>
+        <span className={clsx(styles["checkbox__p"])}>{checkboxText}</span>
       </label>
     </div>
   )

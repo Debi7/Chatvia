@@ -3,13 +3,13 @@
   display: block;
   margin-top: 48px;
   width: 500px;
-  height: 500px;
+  height: 600px;
   /* background-color: red; */
 }
 
 .logo {
   display: block;
-  margin: 30px 194px;
+  margin: 30px 203px;
   height: 21px;
   cursor: pointer;
 }
@@ -31,21 +31,24 @@
   display: block;
   margin: 0 auto;
   margin-top: 20px;
+  margin-bottom: 35px;
   width: 400px;
-  height: 300px;
+  height: 317px;
   padding: 24px;
   background-color: white;
 }
 
+
 .btn {
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 25px;
   border: none;
   border-radius: 3px;
   width: 100%;
-  padding: 7px;
+  padding: 11px;
   background-color: #7269ef;
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: bold;
   color: #ffff;
   user-select: none;
   cursor: pointer;
@@ -60,36 +63,157 @@
   font-weight: 600;
 }
 
-/* checkbox */
-.checkbox input {
-	position: absolute;
-	z-index: -1;
-	opacity: 0;
-	margin: 10px 0 0 20px;
-}
-.checkbox__text {
-	position: relative;
-	cursor: pointer;
-}
-.checkbox__text::before {
-	content: ' ';
-	position: absolute;
-  align-items: center;
-	top: -1px;
-	left: 0;
-	width: 20px;
-	height: 20px;
-  border-radius: 4px;
-  background-color: #dbdef2;
-	box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
-	transition: .2s;
+
+/* блок инпут */
+.wrapper-input {
+  margin-bottom: 21px;
 }
 
-.checkbox__text:checked {
+/* текст над инпутом */
+.textInput {
+  display: flex;
+  justify-content: space-between;
+}
+
+.textRef {
+  text-decoration: none;
+  color: inherit;
+  font-size: 14px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+
+/* checkbox */
+.wrapper__checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.checkbox input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  margin: 10px 0 0 20px;
+  border: none;
+}
+
+.checkbox__text {
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox__text::before {
+  content: ' ';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1px solid rgb(220, 222, 236);
+  background-color: rgb(238, 240, 254);
+  transition: .2s;
+}
+
+.checkbox__text:checked::before {
   content: '✓';
-	background-color: #9FD468;
+  position: absolute;
+  text-align: center;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+  background-color: #524cae;
+  color: #ffff;
+  transition: .2s;
 }
 
 .checkbox__text:focus {
-	box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+  border: 1px solid #0000;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+}
+
+.checkbox__p {
+  margin-left: 15px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+
+/* footer */
+.wrapper-footer {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: blue; */
+  width: 400px;
+  height: 60px;
+}
+
+.link-footer {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.icon-footer {
+  width: 15px;
+  height: 15px;
+  fill: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* стили для Typography */
+.h1 {
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.h2 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+.h3 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.h4 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.h5 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.h6 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.p {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
 }

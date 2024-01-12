@@ -1,0 +1,42 @@
+/* вторая форма с Reset Password */
+.wrapper-formReset {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 400px;
+  height: 317px;
+  padding: 24px;
+  background-color: white;
+}
+
+
+.formReset {
+  /* display: none; */
+  margin: 0 auto;
+  display: block;
+  margin-top: 48px;
+  width: 500px;
+  height: 500px;
+  background-color: red;
+}
+
+.logo {
+  display: block;
+  margin: 30px 194px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.heading {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #000;
+}
+
+.text {
+  font-size: 12px;
+  text-align: center;
+  color: #7a7f9a;
+}
+

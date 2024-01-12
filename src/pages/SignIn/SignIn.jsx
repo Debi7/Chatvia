@@ -1,7 +1,12 @@
-// import { useState } from "react";
 import Button from "../../shared/Button/Button.jsx";
 import Input from "../../shared/Input/Input.jsx";
 import Checkbox from "../../shared/Checkbox/Checkbox.jsx";
+import Footer from "../../shared/Footer/Footer.jsx";
+import LogoBlack from "../../shared/LogoBlack/LogoBlack.jsx";
+import Typography from "../../shared/Typography/Typography.jsx";
+
+import { LiaUser } from "react-icons/lia";
+import { CiLock } from "react-icons/ci";
 
 import styles from "./SignIn.module.css";
 
@@ -12,38 +17,47 @@ const SignIn = () => {
     <>
       <div className={styles["wrapper-signin"]}>
         <div className={styles.wrapperImgText}>
-          <a>
-            <img className={styles.logo} src="src/images/logoBlack.png" alt="logo">
-            </img>
-          </a>
-          <h2 className={styles.heading}>Sign in</h2>
-          <p className={styles.text}>Sign in to continue to Chatvia.</p>
+          <LogoBlack />
+
+          <Typography
+            tag="h2"
+            className={styles.heading}>
+            {"Sign in"}
+          </Typography>
+
+          <Typography
+            tag="p"
+            className={styles.text}>
+            {"Sign in to continue to Chatvia."}
+          </Typography>
         </div>
 
         <div className={styles["wrapper-form"]}>
           <div className={styles["wrapper-input"]}>
+            <div className={styles.textInput}>
+              <span>Username</span>
+            </div>
             <Input
-              // onChange={}
-              // onClick={}
-              // onBlur={}
-              // value={value}
-              // ref={ref}
+              ref={console.log}
               type={"email"}
               placeholder={"admin@themesbrand.com"}
-              label={"Username"}
+              icons={<LiaUser opacity={"0.6"} />}
             />
           </div>
           <div className={styles["wrapper-input"]}>
+            <div className={styles.textInput}>
+              <span>Password</span>
+              <a
+                href={"/reset"}
+                className={styles.textRef}>
+                Forgot password?
+              </a>
+            </div>
             <Input
-              // onChange={}
-              // onClick={}
-              // onBlur={}
-              // value={value}
-              // ref={ref}
               type={"password"}
               placeholder={"....."}
               className={styles.placeholderSignIn}
-              label={"Password"}
+              icons={<CiLock opacity={"0.9"} />}
             />
           </div>
           <div>
@@ -59,7 +73,13 @@ const SignIn = () => {
             Sign in
           </Button>
         </div>
-
+        <div>
+          <Footer
+            className={styles["link-footer"]}
+            value={"Don't have an account ? "}
+            valueRef={"Signup now"}
+          />
+        </div>
       </div>
     </>
   )
