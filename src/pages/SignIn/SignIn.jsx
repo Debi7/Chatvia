@@ -48,7 +48,7 @@ const SignIn = () => {
             <div className={styles.textInput}>
               <span>Password</span>
               <a
-                href={"/reset"}
+                href="/reset"
                 className={styles.textRef}>
                 Forgot password?
               </a>

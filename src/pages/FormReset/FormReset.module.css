@@ -1,14 +1,4 @@
 /* вторая форма с Reset Password */
-.wrapper-formReset {
-  display: block;
-  margin: 0 auto;
-  margin-top: 20px;
-  width: 400px;
-  height: 317px;
-  padding: 24px;
-  background-color: white;
-}
-
 
 .formReset {
   /* display: none; */
