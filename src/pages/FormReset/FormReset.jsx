@@ -70,3 +70,57 @@ const FormReset = () => {
 }
 
 export default FormReset;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* <div className={styles["wrapper-input"]}>
+            <div className={styles.textInput}>
+              <span>Username</span>
+            </div>
+            <Input
+              ref={console.log}
+              type={"email"}
+              placeholder={"admin@themesbrand.com"}
+              icons={<LiaUser opacity={"0.6"} />}
+            />
+          </div>
+          <div className={styles["wrapper-input"]}>
+            <div className={styles.textInput}>
+              <span>Password</span>
+              <a
+                href="/reset"
+                className={styles.textRef}>
+                Forgot password?
+              </a>
+            </div>
+            <Input
+              type={"password"}
+              placeholder={"....."}
+              className={styles.placeholderSignIn}
+              icons={<CiLock opacity={"0.9"} />}
+            />
+          </div>
+          <div>
+            <Checkbox
+              className={styles.checkbox__text}
+              checkboxText={"Remember me"}
+            />
+          </div>
+          <Button
+            type={"submit"}
+            // onClick={() => { }}
+            className={styles.btn}>
+            Sign in
+          </Button> 
+ */}
