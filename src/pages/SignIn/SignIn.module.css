@@ -33,7 +33,7 @@
   margin-top: 20px;
   margin-bottom: 35px;
   width: 400px;
-  height: 317px;
+  /* height: 317px; */
   padding: 24px;
   background-color: white;
 }
@@ -61,6 +61,18 @@
 .placeholderSignIn::placeholder {
   font-size: medium;
   font-weight: 600;
+}
+
+
+/* текст ошибки при невалидном введенном значении в инпут */
+.errorText {
+  margin-bottom: 12px;
+  padding: 9px 20px;
+  text-align: start;
+  border: 1px solid rgb(235, 143, 235);
+  border-radius: 5px;
+  background-color: rgb(230, 179, 188);
+  color: #5e6484;
 }
 
 

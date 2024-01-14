@@ -39,17 +39,23 @@ const SignIn = () => {
           validate={values => {
             const errors = {};
             if (!values.email) {
-              errors.email = 'Required';
+              // мой вариант
+              errors.email =
+                <div className={styles.errorText}>
+                  <span>Username and password are invalid. Please enter correct username and password</span>
+                </div>
+
+              // errors.email = 'Required'; вариант из либы
             } else if (
               !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
             ) {
-              errors.email = 'Invalid email address';
+              // errors.email = 'Invalid email address'; вариант из либы
             }
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
+              console.log(JSON.stringify(values, null, 2));
               setSubmitting(false);
             }, 400);
           }}
@@ -65,6 +71,9 @@ const SignIn = () => {
           }) => (
             <form onSubmit={handleSubmit}>
               <div className={styles["wrapper-input"]}>
+
+                {/* TODO тут должен быть розовый блок с инфой о невалидности значений из инпутов - НАД инпутами */}
+
                 <div className={styles.textInput}>
                   <span>Username</span>
                 </div>
@@ -73,7 +82,7 @@ const SignIn = () => {
                   name="email"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={console.log(values.email)}
+                  value={values.email}
                   placeholder={"admin@themesbrand.com"}
                   icons={<LiaUser opacity={"0.6"} />}
                 />
@@ -113,7 +122,9 @@ const SignIn = () => {
                 <Button
                   type={"submit"}
                   disabled={isSubmitting}
-                  // onClick={() => { }}
+                  onClick={values => {
+                    console.log("submit", values)
+                  }}
                   className={styles.btn}>
                   Sign in
                 </Button>
