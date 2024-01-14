@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { IoMdHeart } from "react-icons/io";
-// import Icons from "../Icons/User.jsx";
 import { clsx } from 'clsx';
 import styles from "../../pages/SignIn/SignIn.module.css";
 

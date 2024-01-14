@@ -75,6 +75,7 @@ const SignIn = () => {
         </div>
         <div>
           <Footer
+            href="/register"
             className={styles["link-footer"]}
             value={"Don't have an account ? "}
             valueRef={"Signup now"}
