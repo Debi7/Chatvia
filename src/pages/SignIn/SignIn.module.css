@@ -65,7 +65,7 @@
 
 
 /* текст ошибки при невалидном введенном значении в инпут */
-.errorText {
+.errorText { 
   margin-bottom: 12px;
   padding: 9px 20px;
   text-align: start;
@@ -75,6 +75,9 @@
   color: #5e6484;
 }
 
+.hidden {
+  display: none;
+}
 
 /* блок инпут */
 .wrapper-input {

@@ -39,17 +39,11 @@ const SignIn = () => {
           validate={values => {
             const errors = {};
             if (!values.email) {
-              // мой вариант
-              errors.email =
-                <div className={styles.errorText}>
-                  <span>Username and password are invalid. Please enter correct username and password</span>
-                </div>
-
-              // errors.email = 'Required'; вариант из либы
+              // errors.email = 'Required';
             } else if (
               !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
             ) {
-              // errors.email = 'Invalid email address'; вариант из либы
+              // errors.email = 'Invalid email address';
             }
             return errors;
           }}
@@ -70,10 +64,15 @@ const SignIn = () => {
             isSubmitting,
           }) => (
             <form onSubmit={handleSubmit}>
+              {/* TODO тут должен быть розовый блок с инфой о невалидности значений из инпутов - НАД инпутами */}
+
+              {errors ? (
+                <div className={styles.errorText}>
+                  <span>Username and password are invalid. Please enter correct username and password</span>
+                </div>
+              ) : null}
+
               <div className={styles["wrapper-input"]}>
-
-                {/* TODO тут должен быть розовый блок с инфой о невалидности значений из инпутов - НАД инпутами */}
-
                 <div className={styles.textInput}>
                   <span>Username</span>
                 </div>
