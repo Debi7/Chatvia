@@ -26,7 +26,7 @@ Input.propTypes = {
   value: PropTypes.string,
   className: PropTypes.string,
   placeholder: PropTypes.string,
-  icons: PropTypes.node
+  icons: PropTypes.node,
 };
 
 export default Input;

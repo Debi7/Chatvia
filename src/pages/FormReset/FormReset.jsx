@@ -1,14 +1,29 @@
+import { useState } from "react";
+
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+
 import Button from "../../shared/Button/Button.jsx";
 import Input from "../../shared/Input/Input.jsx";
 import Typography from "../../shared/Typography/Typography.jsx";
 import LogoBlack from "../../shared/LogoBlack/LogoBlack.jsx";
 import Footer from "../../shared/Footer/Footer.jsx";
+
 import { MdOutlineMailOutline } from "react-icons/md";
+import { CiCircleAlert } from "react-icons/ci";
 
 import styles from "./FormReset.module.css";
 
 
 const FormReset = () => {
+  const [text, setText] = useState("Enter your Email and instructions will be sent to you!");
+
+  function handleChangeText() {
+    setText(() => {
+      return "Check your mail and reset your password."
+    })
+    return text;
+  }
 
   return (
     <>
@@ -30,39 +45,94 @@ const FormReset = () => {
         </div>
 
         <div className={styles["wrapper-form"]}>
-          <div className={styles["wrapper-input"]}>
-            <div className={styles["text-instructions"]}>
-              <span>Enter your Email and instructions will be sent to you!</span>
-            </div>
-            <div className={styles.textInput}>
-              <span>Email</span>
-            </div>
-            <Input
-              type={"email"}
-              placeholder={"Enter Email"}
-              icons={<MdOutlineMailOutline opacity={"0.6"} />}
-            />
-            <div className={styles.textInput}>
-              <span>Required</span>
-            </div>
+          <Formik
+            initialValues={{ email: "" }}
+            validationSchema={Yup.object({
+              firstName: Yup.string()
+                .max(15, 'Must be 15 characters or less')
+                .required('Required'),
+              lastName: Yup.string()
+                .max(20, 'Must be 20 characters or less')
+                .required('Required'),
+              email: Yup.string().email('Invalid email address').required('Required'),
+            })}
+            onSubmit={(values, { setSubmitting }) => {
+              setTimeout(() => {
+                console.log(JSON.stringify(values, null, 2));
+                setSubmitting(false);
+              }, 400);
+            }}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              isSubmitting,
+            }) => (
+              <form onSubmit={handleSubmit}>
 
-            <div>
-              <Button
-                type={"submit"}
-                // onClick={() => { }}
-                className={styles.btn}>
-                Reset
-              </Button>
-            </div>
-          </div>
+                <div className={styles["wrapper-input"]}>
+
+                  {/* в этом спане текст меняется на другой по клику на кнопку Reset */}
+                  <div className={styles["text-instructions"]}>
+                    <span>{text}</span>
+                  </div>
+
+                  <div className={styles.inputReset}>
+
+                    <div className={styles.textInput}>
+                      <span>Email</span>
+                    </div>
+                    <Input
+                      type={"email"}
+                      name="email"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.email}
+                      placeholder={"Enter Email"}
+                      icons={<MdOutlineMailOutline opacity={"0.6"} />}
+                    />
+                    {errors.email && touched.email ? (
+                      <CiCircleAlert className={styles.iconCircl} />
+                    ) : null}
+
+                    {errors.email && touched.email ? (
+                      <span className={styles.errorTextUnderInput}>Required</span>
+                    ) : null}
+                  </div>
+
+                  <div>
+                    <Button
+                      type={"submit"}
+                      disabled={isSubmitting}
+                      onClick={() => {
+                        console.log("submit", values)
+                        {
+                          (!errors.email && touched.email) ? (
+                            handleChangeText()
+                          ) : null
+                        }
+                      }}
+                      className={styles.btn}>
+                      Reset
+                    </Button>
+                  </div>
+
+                </div>
+              </form>
+            )}
+          </Formik>
         </div>
         <div>
           <Footer
             href="/signin"
             className={styles["link-footer"]}
             value={"Remember It ? "}
-            valueRef={"Signin"} 
-            />
+            valueRef={"Signin"}
+          />
         </div>
       </div>
     </>

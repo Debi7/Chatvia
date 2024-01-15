@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 import Button from "../../shared/Button/Button.jsx";
 import Input from "../../shared/Input/Input.jsx";
@@ -9,6 +10,7 @@ import Typography from "../../shared/Typography/Typography.jsx";
 
 import { LiaUser } from "react-icons/lia";
 import { CiLock } from "react-icons/ci";
+import { CiCircleAlert } from "react-icons/ci";
 
 import styles from "./SignIn.module.css";
 
@@ -35,18 +37,16 @@ const SignIn = () => {
 
       <div className={styles["wrapper-form"]}>
         <Formik
-          initialValues={{ email: '', password: '' }}
-          validate={values => {
-            const errors = {};
-            if (!values.email) {
-              // errors.email = 'Required';
-            } else if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
-              // errors.email = 'Invalid email address';
-            }
-            return errors;
-          }}
+          initialValues={{ email: "admin@themesbrand.com", password: '.....' }}
+          validationSchema={Yup.object({
+            firstName: Yup.string()
+              .max(15, 'Must be 15 characters or less')
+              .required('Required'),
+            lastName: Yup.string()
+              .max(20, 'Must be 20 characters or less')
+              .required('Required'),
+            email: Yup.string().email('Invalid email address').required('Required'),
+          })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               console.log(JSON.stringify(values, null, 2));
@@ -64,9 +64,8 @@ const SignIn = () => {
             isSubmitting,
           }) => (
             <form onSubmit={handleSubmit}>
-              {/* TODO тут должен быть розовый блок с инфой о невалидности значений из инпутов - НАД инпутами */}
-
-              {errors ? (
+              {/* розовый блок с инфой о невалидности значений из инпутов */}
+              {errors.email && touched.email ? (
                 <div className={styles.errorText}>
                   <span>Username and password are invalid. Please enter correct username and password</span>
                 </div>
@@ -82,10 +81,15 @@ const SignIn = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
-                  placeholder={"admin@themesbrand.com"}
+                  placeholder={"Enter email"}
                   icons={<LiaUser opacity={"0.6"} />}
                 />
-                {errors.email && touched.email && errors.email}
+                {errors.email && touched.email ? (
+                  <CiCircleAlert className={styles.iconCircl} />
+                ) : null}
+                {errors.email && touched.email ? (
+                  <span className={styles.errorTextUnderInput}>Please Enter Your Username</span>
+                ) : null}
               </div>
 
               <div className={styles["wrapper-input"]}>
@@ -104,11 +108,15 @@ const SignIn = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password}
-                  placeholder={"....."}
-                  className={styles.placeholderSignIn}
+                  placeholder={"Enter Password"}
                   icons={<CiLock opacity={"0.9"} />}
                 />
-                {errors.password && touched.password && errors.password}
+                {errors.email && touched.email ? (
+                  <CiCircleAlert className={styles.iconCircl} />
+                ) : null}
+                {errors.email && touched.email ? (
+                  <span className={styles.errorTextUnderInput}>Please Enter Your Password</span>
+                ) : null}
               </div>
 
               <div>
@@ -121,7 +129,7 @@ const SignIn = () => {
                 <Button
                   type={"submit"}
                   disabled={isSubmitting}
-                  onClick={values => {
+                  onClick={() => {
                     console.log("submit", values)
                   }}
                   className={styles.btn}>

@@ -3,26 +3,27 @@
   display: block;
   margin-top: 48px;
   width: 500px;
-  height: 600px;
+  height: 710px;
   /* background-color: red; */
 }
 
 .logo {
   display: block;
-  margin: 30px 203px;
-  height: 21px;
+  margin: 37px 187px;
+  height: 30px;
   cursor: pointer;
 }
 
 .heading {
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 600;
   text-align: center;
   color: #000;
 }
 
 .text {
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: 600;
   text-align: center;
   color: #7a7f9a;
 }
@@ -33,7 +34,6 @@
   margin-top: 20px;
   margin-bottom: 35px;
   width: 400px;
-  /* height: 317px; */
   padding: 24px;
   background-color: white;
 }
@@ -58,14 +58,9 @@
   background-color: #524cae;
 }
 
-.placeholderSignIn::placeholder {
-  font-size: medium;
-  font-weight: 600;
-}
-
 
 /* текст ошибки при невалидном введенном значении в инпут */
-.errorText { 
+.errorText {
   margin-bottom: 12px;
   padding: 9px 20px;
   text-align: start;
@@ -75,9 +70,27 @@
   color: #5e6484;
 }
 
-.hidden {
-  display: none;
+
+/* iconCircl кружок ошибки внутри инпута */
+.wrapper-input {
+  position: relative;
 }
+
+.iconCircl {
+  position: absolute;
+  top: 40px;
+  left: 359px;
+  fill: red;
+  width: 25px;
+  height: 25px;
+}
+
+/* красный текст ошибки под инпутом */
+.errorTextUnderInput {
+  font-size: 14px;
+  color: #ef476f;
+}
+
 
 /* блок инпут */
 .wrapper-input {
@@ -164,7 +177,6 @@
   align-items: center;
   /* background-color: blue; */
   width: 400px;
-  height: 60px;
 }
 
 .link-footer {
