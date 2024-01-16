@@ -36,19 +36,15 @@ const Register = () => {
 
       <div className={styles["wrapper-form"]}>
         <Formik
-          initialValues={{ email: '', password: '', username: '' }}
+          initialValues={{ email: '', username: '', password: '' }}
           validationSchema={Yup.object({
-            firstName: Yup.string()
-              .max(15, 'Must be 15 characters or less')
-              .required('Required'),
-            lastName: Yup.string()
-              .max(20, 'Must be 20 characters or less')
-              .required('Required'),
-            email: Yup.string().email('Invalid email address').required('Required'),
+            email: Yup.string().email('Некорректный E-mail').required('Обязательное поле'),
+            username: Yup.string().required('Обязательное поле'),
+            password: Yup.string().required('Обязательное поле'),
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
-              console.log(JSON.stringify(values, null, 2));
+              console.log("values", values);
               setSubmitting(false);
             }, 400);
           }}
@@ -76,6 +72,8 @@ const Register = () => {
                   value={values.email}
                   placeholder={"Enter Email"}
                   icons={<MdOutlineMailOutline opacity={"0.6"} />}
+                  errors={errors}
+                  touched={touched}
                 />
 
                 {errors.email && touched.email ? (
@@ -100,12 +98,14 @@ const Register = () => {
                   value={values.username}
                   placeholder={"Enter Username"}
                   icons={<LiaUser opacity={"0.6"} />}
+                  errors={errors}
+                  touched={touched}
                 />
 
-                {errors.email && touched.email ? (
+                {errors.username && touched.username ? (
                   <CiCircleAlert className={styles.iconCircl} />
                 ) : null}
-                {errors.email && touched.email ? (
+                {errors.username && touched.username ? (
                   <span className={styles.errorTextUnderInput}>Required</span>
                 ) : null}
 
@@ -124,12 +124,14 @@ const Register = () => {
                   value={values.password}
                   placeholder={"Enter Password"}
                   icons={<CiLock opacity={"0.9"} />}
+                  errors={errors}
+                  touched={touched}
                 />
 
-                {errors.email && touched.email ? (
+                {errors.password && touched.password ? (
                   <CiCircleAlert className={styles.iconCircl} />
                 ) : null}
-                {errors.email && touched.email ? (
+                {errors.password && touched.password ? (
                   <span className={styles.errorTextUnderInput}>Required</span>
                 ) : null}
 

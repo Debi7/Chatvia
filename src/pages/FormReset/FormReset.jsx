@@ -48,17 +48,11 @@ const FormReset = () => {
           <Formik
             initialValues={{ email: "" }}
             validationSchema={Yup.object({
-              firstName: Yup.string()
-                .max(15, 'Must be 15 characters or less')
-                .required('Required'),
-              lastName: Yup.string()
-                .max(20, 'Must be 20 characters or less')
-                .required('Required'),
-              email: Yup.string().email('Invalid email address').required('Required'),
+              email: Yup.string().email('Некорректный E-mail').required('Обязательное поле'),
             })}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
-                console.log(JSON.stringify(values, null, 2));
+                console.log("values", values);
                 setSubmitting(false);
               }, 400);
             }}
@@ -94,6 +88,8 @@ const FormReset = () => {
                       value={values.email}
                       placeholder={"Enter Email"}
                       icons={<MdOutlineMailOutline opacity={"0.6"} />}
+                      errors={errors}
+                      touched={touched}
                     />
                     {errors.email && touched.email ? (
                       <CiCircleAlert className={styles.iconCircl} />
