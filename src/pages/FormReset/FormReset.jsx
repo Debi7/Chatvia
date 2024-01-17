@@ -3,11 +3,14 @@ import { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-import Button from "../../shared/Button/Button.jsx";
-import Input from "../../shared/Input/Input.jsx";
-import Typography from "../../shared/Typography/Typography.jsx";
-import LogoBlack from "../../shared/LogoBlack/LogoBlack.jsx";
-import Footer from "../../shared/Footer/Footer.jsx";
+import Button from "src/shared/Button/Button.jsx";
+import Input from "src/shared/Input/Input.jsx";
+import Typography from "src/shared/Typography/Typography.jsx";
+import LogoBlack from "src/shared/LogoBlack/LogoBlack.jsx";
+import Footer from "src/shared/Footer/Footer.jsx";
+
+// import { Button, Input, Footer, LogoBlack, Typography } from 'src/shared';
+
 
 import { MdOutlineMailOutline } from "react-icons/md";
 import { CiCircleAlert } from "react-icons/ci";

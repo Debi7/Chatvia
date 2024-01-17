@@ -8,6 +8,8 @@ import Footer from "src/shared/Footer/Footer.jsx";
 import LogoBlack from "src/shared/LogoBlack/LogoBlack.jsx";
 import Typography from "src/shared/Typography/Typography.jsx";
 
+// import { Button, Input, Checkbox, Footer, LogoBlack, Typography } from 'src/shared';
+
 import { LiaUser } from "react-icons/lia";
 import { CiLock } from "react-icons/ci";
 import { CiCircleAlert } from "react-icons/ci";
@@ -57,9 +59,9 @@ const SignIn = () => {
             <form onSubmit={handleSubmit}>
               {/* розовый блок с инфой о невалидности значений из инпутов */}
               {!!errors.email &&
-              touched.email &&
-              !!errors.password &&
-              touched.password ? (
+                touched.email &&
+                !!errors.password &&
+                touched.password ? (
                 <div className={styles.errorText}>
                   <span>
                     Username and password are invalid. Please enter correct
