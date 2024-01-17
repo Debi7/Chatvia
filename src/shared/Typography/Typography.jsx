@@ -7,8 +7,8 @@ const TagType = {
   h3: "h3",
   h2: "h2",
   h1: "h1",
-  p: "p"
-}
+  p: "p",
+};
 
 const Typography = (props) => {
   const { tag, children, ...rest } = props;
@@ -18,15 +18,13 @@ const Typography = (props) => {
     <Component className={tag} {...rest}>
       {children}
     </Component>
-  )
-}
-
+  );
+};
 
 Typography.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  tag: PropTypes.TypographyTag
+  tag: PropTypes.TypographyTag,
 };
 
 export default Typography;
-

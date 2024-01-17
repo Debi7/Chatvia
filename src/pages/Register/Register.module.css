@@ -78,7 +78,6 @@
   cursor: pointer;
 }
 
-
 /* текст над инпутом */
 .textInput {
   display: flex;
@@ -106,7 +105,6 @@
   font-size: 14px;
   color: #ef476f;
 }
-
 
 /* footer */
 .wrapper-footer {

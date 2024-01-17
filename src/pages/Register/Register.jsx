@@ -1,5 +1,5 @@
-import { Formik } from 'formik';
-import * as Yup from 'yup';
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 import Button from "../../shared/Button/Button.jsx";
 import Input from "../../shared/Input/Input.jsx";
@@ -15,32 +15,29 @@ import { CiCircleAlert } from "react-icons/ci";
 import styles from "./Register.module.css";
 
 const Register = () => {
-
   return (
     <div className={styles["wrapper-register"]}>
       <div className={styles.wrapperImgText}>
         <LogoBlack />
 
-        <Typography
-          tag="h2"
-          className={styles.heading}>
+        <Typography tag="h2" className={styles.heading}>
           {"Register"}
         </Typography>
 
-        <Typography
-          tag="p"
-          className={styles.text}>
+        <Typography tag="p" className={styles.text}>
           {"Get your Chatvia account now."}
         </Typography>
       </div>
 
       <div className={styles["wrapper-form"]}>
         <Formik
-          initialValues={{ email: '', username: '', password: '' }}
+          initialValues={{ email: "", username: "", password: "" }}
           validationSchema={Yup.object({
-            email: Yup.string().email('Некорректный E-mail').required('Обязательное поле'),
-            username: Yup.string().required('Обязательное поле'),
-            password: Yup.string().required('Обязательное поле'),
+            email: Yup.string()
+              .email("Некорректный E-mail")
+              .required("Обязательное поле"),
+            username: Yup.string().required("Обязательное поле"),
+            password: Yup.string().required("Обязательное поле"),
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
@@ -59,7 +56,6 @@ const Register = () => {
             isSubmitting,
           }) => (
             <form onSubmit={handleSubmit}>
-
               <div className={styles["wrapper-input"]}>
                 <div className={styles.textInput}>
                   <span>Email</span>
@@ -82,9 +78,7 @@ const Register = () => {
                 {errors.email && touched.email ? (
                   <span className={styles.errorTextUnderInput}>Required</span>
                 ) : null}
-
               </div>
-
 
               <div className={styles["wrapper-input"]}>
                 <div className={styles.textInput}>
@@ -108,9 +102,7 @@ const Register = () => {
                 {errors.username && touched.username ? (
                   <span className={styles.errorTextUnderInput}>Required</span>
                 ) : null}
-
               </div>
-
 
               <div className={styles["wrapper-input"]}>
                 <div className={styles.textInput}>
@@ -134,7 +126,6 @@ const Register = () => {
                 {errors.password && touched.password ? (
                   <span className={styles.errorTextUnderInput}>Required</span>
                 ) : null}
-
               </div>
 
               <div>
@@ -142,9 +133,10 @@ const Register = () => {
                   type={"submit"}
                   disabled={isSubmitting}
                   onClick={() => {
-                    console.log("submit", values)
+                    console.log("submit", values);
                   }}
-                  className={styles.btn}>
+                  className={styles.btn}
+                >
                   Register
                 </Button>
               </div>
@@ -153,8 +145,12 @@ const Register = () => {
         </Formik>
 
         <div className={styles["text-agree"]}>
-          <span className={styles.p}>By registering you agree to the Chatvia </span>
-          <a href="/register" className={styles.textRef}>Terms of Use</a>
+          <span className={styles.p}>
+            By registering you agree to the Chatvia{" "}
+          </span>
+          <a href="/register" className={styles.textRef}>
+            Terms of Use
+          </a>
         </div>
       </div>
 
@@ -167,7 +163,7 @@ const Register = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Register;

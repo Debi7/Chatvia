@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styles from "../../pages/Signin/SignIn.module.css";
 
-import { clsx } from 'clsx';
+import { clsx } from "clsx";
 
 const Checkbox = (props) => {
   const { checkboxText, ...rest } = props;
@@ -12,7 +12,7 @@ const Checkbox = (props) => {
         <span className={clsx(styles["checkbox__p"])}>{checkboxText}</span>
       </label>
     </div>
-  )
+  );
 };
 
 Checkbox.propTypes = {

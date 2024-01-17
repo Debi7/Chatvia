@@ -85,7 +85,6 @@
   justify-content: space-between;
 }
 
-
 /* iconCircl кружок ошибки внутри инпута */
 .inputReset {
   position: relative;
@@ -105,7 +104,6 @@
   font-size: 14px;
   color: #ef476f;
 }
-
 
 /* footer */
 .wrapper-footer {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { Formik } from 'formik';
-import * as Yup from 'yup';
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 import Button from "../../shared/Button/Button.jsx";
 import Input from "../../shared/Input/Input.jsx";
@@ -14,14 +14,15 @@ import { CiCircleAlert } from "react-icons/ci";
 
 import styles from "./FormReset.module.css";
 
-
 const FormReset = () => {
-  const [text, setText] = useState("Enter your Email and instructions will be sent to you!");
+  const [text, setText] = useState(
+    "Enter your Email and instructions will be sent to you!",
+  );
 
   function handleChangeText() {
     setText(() => {
-      return "Check your mail and reset your password."
-    })
+      return "Check your mail and reset your password.";
+    });
     return text;
   }
 
@@ -31,15 +32,11 @@ const FormReset = () => {
         <div className={styles.formReset}>
           <LogoBlack />
 
-          <Typography
-            tag="h2"
-            className={styles.heading}>
+          <Typography tag="h2" className={styles.heading}>
             {"Reset Password"}
           </Typography>
 
-          <Typography
-            tag="p"
-            className={styles.text}>
+          <Typography tag="p" className={styles.text}>
             {"Reset Password With Chatvia."}
           </Typography>
         </div>
@@ -48,7 +45,9 @@ const FormReset = () => {
           <Formik
             initialValues={{ email: "" }}
             validationSchema={Yup.object({
-              email: Yup.string().email('Некорректный E-mail').required('Обязательное поле'),
+              email: Yup.string()
+                .email("Некорректный E-mail")
+                .required("Обязательное поле"),
             })}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
@@ -67,16 +66,13 @@ const FormReset = () => {
               isSubmitting,
             }) => (
               <form onSubmit={handleSubmit}>
-
                 <div className={styles["wrapper-input"]}>
-
                   {/* в этом спане текст меняется на другой по клику на кнопку Reset */}
                   <div className={styles["text-instructions"]}>
                     <span>{text}</span>
                   </div>
 
                   <div className={styles.inputReset}>
-
                     <div className={styles.textInput}>
                       <span>Email</span>
                     </div>
@@ -96,7 +92,9 @@ const FormReset = () => {
                     ) : null}
 
                     {errors.email && touched.email ? (
-                      <span className={styles.errorTextUnderInput}>Required</span>
+                      <span className={styles.errorTextUnderInput}>
+                        Required
+                      </span>
                     ) : null}
                   </div>
 
@@ -105,18 +103,18 @@ const FormReset = () => {
                       type={"submit"}
                       disabled={isSubmitting}
                       onClick={() => {
-                        console.log("submit", values)
+                        console.log("submit", values);
                         {
-                          (!errors.email && touched.email) ? (
-                            handleChangeText()
-                          ) : null
+                          !errors.email && touched.email
+                            ? handleChangeText()
+                            : null;
                         }
                       }}
-                      className={styles.btn}>
+                      className={styles.btn}
+                    >
                       Reset
                     </Button>
                   </div>
-
                 </div>
               </form>
             )}
@@ -132,25 +130,13 @@ const FormReset = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default FormReset;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <div className={styles["wrapper-input"]}>
+{
+  /* <div className={styles["wrapper-input"]}>
             <div className={styles.textInput}>
               <span>Username</span>
             </div>
@@ -189,4 +175,5 @@ export default FormReset;
             className={styles.btn}>
             Sign in
           </Button> 
- */}
+ */
+}

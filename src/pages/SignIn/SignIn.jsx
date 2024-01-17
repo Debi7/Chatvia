@@ -1,5 +1,5 @@
-import { Formik } from 'formik';
-import * as Yup from 'yup';
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 import Button from "src/shared/Button/Button.jsx";
 import Input from "src/shared/Input/Input.jsx";
@@ -14,33 +14,29 @@ import { CiCircleAlert } from "react-icons/ci";
 
 import styles from "./SignIn.module.css";
 
-
 const SignIn = () => {
-
   return (
     <div className={styles["wrapper-signin"]}>
       <div className={styles.wrapperImgText}>
         <LogoBlack />
 
-        <Typography
-          tag="h2"
-          className={styles.heading}>
+        <Typography tag="h2" className={styles.heading}>
           {"Sign in"}
         </Typography>
 
-        <Typography
-          tag="p"
-          className={styles.text}>
+        <Typography tag="p" className={styles.text}>
           {"Sign in to continue to Chatvia."}
         </Typography>
       </div>
 
       <div className={styles["wrapper-form"]}>
         <Formik
-          initialValues={{ email: "admin@themesbrand.com", password: '.....' }}
+          initialValues={{ email: "admin@themesbrand.com", password: "....." }}
           validationSchema={Yup.object({
-            email: Yup.string().email('Некорректный E-mail').required('Обязательное поле'),
-            password: Yup.string().required('Обязательное поле'),
+            email: Yup.string()
+              .email("Некорректный E-mail")
+              .required("Обязательное поле"),
+            password: Yup.string().required("Обязательное поле"),
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
@@ -60,9 +56,15 @@ const SignIn = () => {
           }) => (
             <form onSubmit={handleSubmit}>
               {/* розовый блок с инфой о невалидности значений из инпутов */}
-              {!!errors.email && touched.email && !!errors.password && touched.password ? (
+              {!!errors.email &&
+              touched.email &&
+              !!errors.password &&
+              touched.password ? (
                 <div className={styles.errorText}>
-                  <span>Username and password are invalid. Please enter correct username and password</span>
+                  <span>
+                    Username and password are invalid. Please enter correct
+                    username and password
+                  </span>
                 </div>
               ) : null}
 
@@ -86,16 +88,16 @@ const SignIn = () => {
                   <CiCircleAlert className={styles.iconCircl} />
                 ) : null}
                 {errors.email && touched.email ? (
-                  <span className={styles.errorTextUnderInput}>Please Enter Your Username</span>
+                  <span className={styles.errorTextUnderInput}>
+                    Please Enter Your Username
+                  </span>
                 ) : null}
               </div>
 
               <div className={styles["wrapper-input"]}>
                 <div className={styles.textInput}>
                   <span>Password</span>
-                  <a
-                    href="/reset"
-                    className={styles.textRef}>
+                  <a href="/reset" className={styles.textRef}>
                     Forgot password?
                   </a>
                 </div>
@@ -116,7 +118,9 @@ const SignIn = () => {
                   <CiCircleAlert className={styles.iconCircl} />
                 ) : null}
                 {errors.password && touched.password ? (
-                  <span className={styles.errorTextUnderInput}>Please Enter Your Password</span>
+                  <span className={styles.errorTextUnderInput}>
+                    Please Enter Your Password
+                  </span>
                 ) : null}
               </div>
 
@@ -131,9 +135,10 @@ const SignIn = () => {
                   type={"submit"}
                   disabled={isSubmitting}
                   onClick={() => {
-                    console.log("submit", values)
+                    console.log("submit", values);
                   }}
-                  className={styles.btn}>
+                  className={styles.btn}
+                >
                   Sign in
                 </Button>
               </div>
@@ -151,7 +156,7 @@ const SignIn = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SignIn;
