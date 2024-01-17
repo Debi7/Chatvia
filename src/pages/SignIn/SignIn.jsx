@@ -1,12 +1,12 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-import Button from "../../shared/Button/Button.jsx";
-import Input from "../../shared/Input/Input.jsx";
-import Checkbox from "../../shared/Checkbox/Checkbox.jsx";
-import Footer from "../../shared/Footer/Footer.jsx";
-import LogoBlack from "../../shared/LogoBlack/LogoBlack.jsx";
-import Typography from "../../shared/Typography/Typography.jsx";
+import Button from "src/shared/Button/Button.jsx";
+import Input from "src/shared/Input/Input.jsx";
+import Checkbox from "src/shared/Checkbox/Checkbox.jsx";
+import Footer from "src/shared/Footer/Footer.jsx";
+import LogoBlack from "src/shared/LogoBlack/LogoBlack.jsx";
+import Typography from "src/shared/Typography/Typography.jsx";
 
 import { LiaUser } from "react-icons/lia";
 import { CiLock } from "react-icons/ci";
