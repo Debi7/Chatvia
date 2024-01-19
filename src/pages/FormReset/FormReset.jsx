@@ -76,10 +76,8 @@ const FormReset = () => {
                   </div>
 
                   <div className={styles.inputReset}>
-                    <div className={styles.textInput}>
-                      <span>Email</span>
-                    </div>
                     <Input
+                      label="Email"
                       type={"email"}
                       name="email"
                       onChange={handleChange}

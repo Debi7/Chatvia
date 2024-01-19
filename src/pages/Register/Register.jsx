@@ -59,10 +59,8 @@ const Register = () => {
           }) => (
             <form onSubmit={handleSubmit}>
               <div className={styles["wrapper-input"]}>
-                <div className={styles.textInput}>
-                  <span>Email</span>
-                </div>
                 <Input
+                  label="Email"
                   type={"email"}
                   name="email"
                   onChange={handleChange}
@@ -83,10 +81,8 @@ const Register = () => {
               </div>
 
               <div className={styles["wrapper-input"]}>
-                <div className={styles.textInput}>
-                  <span>Username</span>
-                </div>
                 <Input
+                  label="Username"
                   type={"username"}
                   name="username"
                   onChange={handleChange}
@@ -107,10 +103,8 @@ const Register = () => {
               </div>
 
               <div className={styles["wrapper-input"]}>
-                <div className={styles.textInput}>
-                  <span>Password</span>
-                </div>
                 <Input
+                  label="Password"
                   type={"password"}
                   name="password"
                   onChange={handleChange}

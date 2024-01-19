@@ -7,12 +7,12 @@
 } */
 
 .input-label {
-  display: block;
+  /* display: block; */
   margin: 0 auto;
   margin-top: 20px;
-  font-size: 10px;
-  font-weight: 600;
-  color: rgb(122, 127, 154);
+  font-size: 16px;
+  font-weight: 400;
+  /* color: rgb(122, 127, 154); */
 }
 
 .input-group {

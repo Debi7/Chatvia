@@ -93,12 +93,12 @@
   margin-bottom: 21px;
 }
 
-/* текст над инпутом */
+/* блок с линком над инпутом */
 .textInput {
-  display: flex;
-  justify-content: space-between;
+  float: right;
 }
 
+/* линк */
 .textRef {
   text-decoration: none;
   color: inherit;

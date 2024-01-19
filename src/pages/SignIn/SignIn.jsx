@@ -71,11 +71,8 @@ const SignIn = () => {
               ) : null}
 
               <div className={styles["wrapper-input"]}>
-                <div className={styles.textInput}>
-                  <span>Username</span>
-                </div>
                 <Input
-                  // label="UserName"
+                  label="Username"
                   type="email"
                   name="email"
                   onChange={handleChange}
@@ -98,14 +95,13 @@ const SignIn = () => {
 
               <div className={styles["wrapper-input"]}>
                 <div className={styles.textInput}>
-                  <span>Password</span>
                   <a href="/reset" className={styles.textRef}>
                     Forgot password?
                   </a>
                 </div>
                 <Input
                   ref={console.log}
-                  // label="Password"
+                  label="Password"
                   type="password"
                   name="password"
                   onChange={handleChange}

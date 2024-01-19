@@ -79,13 +79,7 @@
   margin-bottom: 21px;
 }
 
-/* текст над инпутом */
-.textInput {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* iconCircl кружок ошибки внутри инпута */
+/* общий блок inputReset и кружок ошибки iconCircl внутри инпута */
 .inputReset {
   position: relative;
 }
