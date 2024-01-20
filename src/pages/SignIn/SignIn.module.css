@@ -7,13 +7,6 @@
   /* background-color: red; */
 }
 
-.logo {
-  display: block;
-  margin: 37px 187px;
-  height: 30px;
-  cursor: pointer;
-}
-
 .heading {
   font-size: 21px;
   font-weight: 600;
@@ -38,25 +31,6 @@
   background-color: white;
 }
 
-.btn {
-  margin: 0 auto;
-  margin-top: 25px;
-  border: none;
-  border-radius: 3px;
-  width: 100%;
-  padding: 11px;
-  background-color: #7269ef;
-  font-size: 16px;
-  font-weight: bold;
-  color: #ffff;
-  user-select: none;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #524cae;
-}
-
 /* текст ошибки при невалидном введенном значении в инпут */
 .errorText {
   margin-bottom: 12px;
@@ -66,31 +40,6 @@
   border-radius: 5px;
   background-color: rgb(230, 179, 188);
   color: #5e6484;
-}
-
-/* iconCircl кружок ошибки внутри инпута */
-.wrapper-input {
-  position: relative;
-}
-
-.iconCircl {
-  position: absolute;
-  top: 40px;
-  left: 359px;
-  fill: red;
-  width: 25px;
-  height: 25px;
-}
-
-/* красный текст ошибки под инпутом */
-.errorTextUnderInput {
-  font-size: 14px;
-  color: #ef476f;
-}
-
-/* блок инпут */
-.wrapper-input {
-  margin-bottom: 21px;
 }
 
 /* блок с линком над инпутом */
@@ -105,124 +54,5 @@
   font-size: 14px;
   opacity: 0.7;
   cursor: pointer;
-}
-
-/* checkbox */
-.wrapper__checkbox {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 18px;
-}
-
-.checkbox input {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-  margin: 10px 0 0 20px;
-  border: none;
-}
-
-.checkbox__text {
-  position: relative;
-  cursor: pointer;
-}
-
-.checkbox__text::before {
-  content: " ";
-  position: absolute;
-  top: -1px;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  border-radius: 3px;
-  border: 1px solid rgb(220, 222, 236);
-  background-color: rgb(238, 240, 254);
-  transition: 0.2s;
-}
-
-.checkbox__text:checked::before {
-  content: "✓";
-  position: absolute;
-  text-align: center;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-  background-color: #524cae;
-  color: #ffff;
-  transition: 0.2s;
-}
-
-.checkbox__text:focus {
-  border: 1px solid #0000;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-}
-
-.checkbox__p {
-  margin-left: 15px;
-  font-size: 15px;
-  font-weight: 400;
-}
-
-/* footer */
-.wrapper-footer {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: blue; */
-  width: 400px;
-}
-
-.link-footer {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.icon-footer {
-  width: 15px;
-  height: 15px;
-  fill: red;
-}
-
-/* стили для Typography */
-.h1 {
-  font-weight: 900;
-  font-size: 48px;
-  line-height: 56px;
-}
-
-.h2 {
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 48px;
-}
-
-.h3 {
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
-}
-
-.h4 {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 32px;
-}
-
-.h5 {
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-}
-
-.h6 {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 20px;
-}
-
-.p {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 20px;
+  /* TODO почему перестал применяться cursor: pointer;  */
 }

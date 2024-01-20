@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { IoMdHeart } from "react-icons/io";
 import { clsx } from "clsx";
-import styles from "../../pages/SignIn/SignIn.module.css";
+import styles from "./Footer.module.css";
 
 const Footer = (props) => {
   const { value, valueRef, onClick, ...rest } = props;
@@ -10,7 +10,7 @@ const Footer = (props) => {
     <div className={clsx(styles["wrapper-footer"])}>
       <p>
         {value}
-        <a onClick={onClick} href="" {...rest}>
+        <a className={clsx(styles["link-footer"])} onClick={onClick} {...rest}>
           {valueRef}
         </a>
       </p>

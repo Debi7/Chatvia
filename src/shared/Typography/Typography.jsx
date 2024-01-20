@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import styles from "./Typography.module.css";
 
 const TagType = {
   h6: "h6",
@@ -15,7 +16,7 @@ const Typography = (props) => {
   const Component = TagType[tag];
 
   return (
-    <Component className={tag} {...rest}>
+    <Component className={tag, styles.className} {...rest}>  {/* TODO  верна ли эта запись?  className={tag, styles.className} */}
       {children}
     </Component>
   );

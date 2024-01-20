@@ -12,7 +12,6 @@ import Typography from "src/shared/Typography/Typography.jsx";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { LiaUser } from "react-icons/lia";
 import { CiLock } from "react-icons/ci";
-import { CiCircleAlert } from "react-icons/ci";
 
 import styles from "./Register.module.css";
 
@@ -58,84 +57,57 @@ const Register = () => {
             isSubmitting,
           }) => (
             <form onSubmit={handleSubmit}>
-              <div className={styles["wrapper-input"]}>
-                <Input
-                  label="Email"
-                  type={"email"}
-                  name="email"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                  placeholder={"Enter Email"}
-                  icons={<MdOutlineMailOutline opacity={"0.6"} />}
-                  errors={errors}
-                  touched={touched}
-                />
+              <Input
+                label="Email"
+                type={"email"}
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                placeholder={"Enter Email"}
+                icons={<MdOutlineMailOutline opacity={"0.6"} />}
+                errors={errors}
+                touched={touched}
+                errorText={"Please Enter Your Email"}
+              />
 
-                {errors.email && touched.email ? (
-                  <CiCircleAlert className={styles.iconCircl} />
-                ) : null}
-                {errors.email && touched.email ? (
-                  <span className={styles.errorTextUnderInput}>Required</span>
-                ) : null}
-              </div>
+              <Input
+                label="Username"
+                type={"username"}
+                name="username"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.username}
+                placeholder={"Enter Username"}
+                icons={<LiaUser opacity={"0.6"} />}
+                errors={errors}
+                touched={touched}
+                errorText={"Please Enter Your Username"}
+              />
 
-              <div className={styles["wrapper-input"]}>
-                <Input
-                  label="Username"
-                  type={"username"}
-                  name="username"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.username}
-                  placeholder={"Enter Username"}
-                  icons={<LiaUser opacity={"0.6"} />}
-                  errors={errors}
-                  touched={touched}
-                />
+              <Input
+                label="Password"
+                type={"password"}
+                name="password"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+                placeholder={"Enter Password"}
+                icons={<CiLock opacity={"0.9"} />}
+                errors={errors}
+                touched={touched}
+                errorText={"Please Enter Your Password"}
+              />
 
-                {errors.username && touched.username ? (
-                  <CiCircleAlert className={styles.iconCircl} />
-                ) : null}
-                {errors.username && touched.username ? (
-                  <span className={styles.errorTextUnderInput}>Required</span>
-                ) : null}
-              </div>
-
-              <div className={styles["wrapper-input"]}>
-                <Input
-                  label="Password"
-                  type={"password"}
-                  name="password"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.password}
-                  placeholder={"Enter Password"}
-                  icons={<CiLock opacity={"0.9"} />}
-                  errors={errors}
-                  touched={touched}
-                />
-
-                {errors.password && touched.password ? (
-                  <CiCircleAlert className={styles.iconCircl} />
-                ) : null}
-                {errors.password && touched.password ? (
-                  <span className={styles.errorTextUnderInput}>Required</span>
-                ) : null}
-              </div>
-
-              <div>
-                <Button
-                  type={"submit"}
-                  disabled={isSubmitting}
-                  onClick={() => {
-                    console.log("submit", values);
-                  }}
-                  className={styles.btn}
-                >
-                  Register
-                </Button>
-              </div>
+              <Button
+                type={"submit"}
+                disabled={isSubmitting}
+                onClick={() => {
+                  console.log("submit", values);
+                }}
+              >
+                Register
+              </Button>
             </form>
           )}
         </Formik>
@@ -153,7 +125,6 @@ const Register = () => {
       <div>
         <Footer
           href="/signin"
-          className={styles["link-footer"]}
           value={"Already have an account ? "}
           valueRef={"Signin"}
         />

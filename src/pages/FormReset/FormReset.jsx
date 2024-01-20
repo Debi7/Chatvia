@@ -11,10 +11,7 @@ import Footer from "src/shared/Footer/Footer.jsx";
 
 // import { Button, Input, Footer, LogoBlack, Typography } from 'src/shared';
 
-
 import { MdOutlineMailOutline } from "react-icons/md";
-import { CiCircleAlert } from "react-icons/ci";
-
 import styles from "./FormReset.module.css";
 
 const FormReset = () => {
@@ -69,53 +66,41 @@ const FormReset = () => {
               isSubmitting,
             }) => (
               <form onSubmit={handleSubmit}>
-                <div className={styles["wrapper-input"]}>
+                <div>
                   {/* в этом спане текст меняется на другой по клику на кнопку Reset */}
                   <div className={styles["text-instructions"]}>
                     <span>{text}</span>
                   </div>
 
-                  <div className={styles.inputReset}>
-                    <Input
-                      label="Email"
-                      type={"email"}
-                      name="email"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.email}
-                      placeholder={"Enter Email"}
-                      icons={<MdOutlineMailOutline opacity={"0.6"} />}
-                      errors={errors}
-                      touched={touched}
-                    />
-                    {errors.email && touched.email ? (
-                      <CiCircleAlert className={styles.iconCircl} />
-                    ) : null}
+                  <Input
+                    label="Email"
+                    type={"email"}
+                    name="email"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                    placeholder={"Enter Email"}
+                    icons={<MdOutlineMailOutline opacity={"0.6"} />}
+                    errors={errors}
+                    touched={touched}
+                    errorText={"Please Enter Your Email"}
+                  />
 
-                    {errors.email && touched.email ? (
-                      <span className={styles.errorTextUnderInput}>
-                        Required
-                      </span>
-                    ) : null}
-                  </div>
+                  <Button
+                    type={"submit"}
+                    disabled={isSubmitting}
+                    onClick={() => {
+                      console.log("submit", values);
+                      {
+                        !errors.email && touched.email
+                          ? handleChangeText()
+                          : null;
+                      }
+                    }}
+                  >
+                    Reset
+                  </Button>
 
-                  <div>
-                    <Button
-                      type={"submit"}
-                      disabled={isSubmitting}
-                      onClick={() => {
-                        console.log("submit", values);
-                        {
-                          !errors.email && touched.email
-                            ? handleChangeText()
-                            : null;
-                        }
-                      }}
-                      className={styles.btn}
-                    >
-                      Reset
-                    </Button>
-                  </div>
                 </div>
               </form>
             )}
@@ -124,7 +109,6 @@ const FormReset = () => {
         <div>
           <Footer
             href="/signin"
-            className={styles["link-footer"]}
             value={"Remember It ? "}
             valueRef={"Signin"}
           />
@@ -135,46 +119,3 @@ const FormReset = () => {
 };
 
 export default FormReset;
-
-{
-  /* <div className={styles["wrapper-input"]}>
-            <div className={styles.textInput}>
-              <span>Username</span>
-            </div>
-            <Input
-              ref={console.log}
-              type={"email"}
-              placeholder={"admin@themesbrand.com"}
-              icons={<LiaUser opacity={"0.6"} />}
-            />
-          </div>
-          <div className={styles["wrapper-input"]}>
-            <div className={styles.textInput}>
-              <span>Password</span>
-              <a
-                href="/reset"
-                className={styles.textRef}>
-                Forgot password?
-              </a>
-            </div>
-            <Input
-              type={"password"}
-              placeholder={"....."}
-              className={styles.placeholderSignIn}
-              icons={<CiLock opacity={"0.9"} />}
-            />
-          </div>
-          <div>
-            <Checkbox
-              className={styles.checkbox__text}
-              checkboxText={"Remember me"}
-            />
-          </div>
-          <Button
-            type={"submit"}
-            // onClick={() => { }}
-            className={styles.btn}>
-            Sign in
-          </Button> 
- */
-}

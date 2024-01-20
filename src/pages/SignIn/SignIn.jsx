@@ -12,7 +12,6 @@ import Typography from "src/shared/Typography/Typography.jsx";
 
 import { LiaUser } from "react-icons/lia";
 import { CiLock } from "react-icons/ci";
-import { CiCircleAlert } from "react-icons/ci";
 
 import styles from "./SignIn.module.css";
 
@@ -70,76 +69,52 @@ const SignIn = () => {
                 </div>
               ) : null}
 
-              <div className={styles["wrapper-input"]}>
-                <Input
-                  label="Username"
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                  placeholder={"Enter email"}
-                  icons={<LiaUser opacity={"0.6"} />}
-                  errors={errors}
-                  touched={touched}
-                />
-                {errors.email && touched.email ? (
-                  <CiCircleAlert className={styles.iconCircl} />
-                ) : null}
-                {errors.email && touched.email ? (
-                  <span className={styles.errorTextUnderInput}>
-                    Please Enter Your Username
-                  </span>
-                ) : null}
-              </div>
+              <Input
+                label="Username"
+                type="email"
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                placeholder={"Enter email"}
+                icons={<LiaUser opacity={"0.6"} />}
+                errors={errors}
+                touched={touched}
+                errorText={"Please Enter Your Username"}
+              />
 
-              <div className={styles["wrapper-input"]}>
-                <div className={styles.textInput}>
-                  <a href="/reset" className={styles.textRef}>
-                    Forgot password?
-                  </a>
-                </div>
-                <Input
-                  ref={console.log}
-                  label="Password"
-                  type="password"
-                  name="password"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.password}
-                  placeholder={"Enter Password"}
-                  icons={<CiLock opacity={"0.9"} />}
-                  errors={errors}
-                  touched={touched}
-                />
-                {errors.password && touched.password ? (
-                  <CiCircleAlert className={styles.iconCircl} />
-                ) : null}
-                {errors.password && touched.password ? (
-                  <span className={styles.errorTextUnderInput}>
-                    Please Enter Your Password
-                  </span>
-                ) : null}
+              <div className={styles.textInput}>
+                <a href="/reset" className={styles.textRef}>
+                  Forgot password?
+                  {/* TODO  нет cursor: pointer; ! */}
+                </a>
               </div>
+              <Input
+                label="Password"
+                type="password"
+                name="password"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+                placeholder={"Enter Password"}
+                icons={<CiLock opacity={"0.9"} />}
+                errors={errors}
+                touched={touched}
+                errorText={"Please Enter Your Password"}
+              />
 
-              <div>
-                <Checkbox
-                  className={styles.checkbox__text}
-                  checkboxText={"Remember me"}
-                />
-              </div>
-              <div>
-                <Button
-                  type={"submit"}
-                  disabled={isSubmitting}
-                  onClick={() => {
-                    console.log("submit", values);
-                  }}
-                  className={styles.btn}
-                >
-                  Sign in
-                </Button>
-              </div>
+              <Checkbox checkboxText={"Remember me"} />
+
+              <Button
+                type={"submit"}
+                disabled={isSubmitting}
+                onClick={() => {
+                  console.log("submit", values);
+                }}
+              >
+                Sign in
+              </Button>
+
             </form>
           )}
         </Formik>
@@ -148,7 +123,6 @@ const SignIn = () => {
       <div>
         <Footer
           href="/register"
-          className={styles["link-footer"]}
           value={"Don't have an account ? "}
           valueRef={"Signup now"}
         />

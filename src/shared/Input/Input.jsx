@@ -1,21 +1,35 @@
 import PropTypes from "prop-types";
-import { forwardRef } from "react";
 import { clsx } from "clsx";
 import styles from "./Input.module.css";
 
-const Input = forwardRef(function Input(props, ref) {
-  const { label, className, icons, ...rest } = props;
+import { CiCircleAlert } from "react-icons/ci";
+
+const Input = (props) => {
+  const { label, className, icons, name, errors, touched, errorText, ...rest } = props;
 
   return (
-    <label>
-      {label && <span className={styles["input-label"]}>{label}</span>}
-      <div className={styles["input-group"]}>
-        <div className={styles["svg-box"]}>{icons}</div>
-        <input {...rest} className={clsx(styles.input, className)} ref={ref} />
-      </div>
-    </label>
+    <div className={clsx(styles["wrapper-input"])}>
+
+      <label>
+        {label && <span className={clsx(styles["input-label"])}>{label}</span>}
+        <div className={clsx(styles["input-group"])}>
+          <div className={clsx(styles["svg-box"])}>{icons}</div>
+          <input {...rest} className={clsx(styles.input, className)} name={name} />
+        </div>
+      </label>
+
+      {/* TODO errors и touched - это объекты? а name - ключ? */}
+      {errors[name] && touched[name] ? <CiCircleAlert className={clsx(styles.iconCircl)} /> : null}
+      {errors[name] && touched[name] ? (
+        <span className={clsx(styles.errorTextUnderInput)}>
+          {errorText}
+        </span>
+      ) : null}
+
+    </div>
   );
-});
+};
+
 
 Input.propTypes = {
   label: PropTypes.node,
@@ -23,6 +37,10 @@ Input.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
   icons: PropTypes.node,
+  name: PropTypes.string,
+  errors: PropTypes.string,
+  touched: PropTypes.string,
+  errorText: PropTypes.string
 };
 
 export default Input;
