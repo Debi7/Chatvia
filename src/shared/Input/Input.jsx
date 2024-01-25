@@ -5,7 +5,7 @@ import styles from "./Input.module.css";
 import { CiCircleAlert } from "react-icons/ci";
 
 const Input = (props) => {
-  const { label, className, icons, name, errors, touched, errorText, ...rest } = props;
+  const { label, className, icons, name, errors, touched, ...rest } = props;
 
   return (
     <div className={clsx(styles["wrapper-input"])}>
@@ -22,7 +22,7 @@ const Input = (props) => {
       {errors[name] && touched[name] ? <CiCircleAlert className={clsx(styles.iconCircl)} /> : null}
       {errors[name] && touched[name] ? (
         <span className={clsx(styles.errorTextUnderInput)}>
-          {errorText}
+          {errors[name]}
         </span>
       ) : null}
 

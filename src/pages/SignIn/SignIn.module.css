@@ -4,7 +4,6 @@
   margin-top: 48px;
   width: 500px;
   height: 710px;
-  /* background-color: red; */
 }
 
 .heading {
@@ -45,6 +44,8 @@
 /* блок с линком над инпутом */
 .textInput {
   float: right;
+  position: relative;
+  z-index: 1;
 }
 
 /* линк */
@@ -54,5 +55,4 @@
   font-size: 14px;
   opacity: 0.7;
   cursor: pointer;
-  /* TODO почему перестал применяться cursor: pointer;  */
 }

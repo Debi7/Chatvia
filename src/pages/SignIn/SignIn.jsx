@@ -36,8 +36,8 @@ const SignIn = () => {
           validationSchema={Yup.object({
             email: Yup.string()
               .email("Incorrect Email format")
-              .required("Обязательное поле"),
-            password: Yup.string().required("Обязательное поле"),
+              .required("Please Enter Your Username"),
+            password: Yup.string().required("Please Enter Your Password"),
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
