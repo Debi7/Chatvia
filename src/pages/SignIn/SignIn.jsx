@@ -35,7 +35,7 @@ const SignIn = () => {
           initialValues={{ email: "admin@themesbrand.com", password: "....." }}
           validationSchema={Yup.object({
             email: Yup.string()
-              .email("Некорректный E-mail")
+              .email("Incorrect Email format")
               .required("Обязательное поле"),
             password: Yup.string().required("Обязательное поле"),
           })}
@@ -80,7 +80,7 @@ const SignIn = () => {
                 icons={<LiaUser opacity={"0.6"} />}
                 errors={errors}
                 touched={touched}
-                errorText={"Please Enter Your Username"}
+              // errorText={"Please Enter Your Username"}
               />
 
               <div className={styles.textInput}>
@@ -100,7 +100,7 @@ const SignIn = () => {
                 icons={<CiLock opacity={"0.9"} />}
                 errors={errors}
                 touched={touched}
-                errorText={"Please Enter Your Password"}
+              // errorText={"Please Enter Your Password"}
               />
 
               <Checkbox checkboxText={"Remember me"} />
