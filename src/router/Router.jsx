@@ -4,24 +4,26 @@ import Register from "../pages/Register/Register.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const Router = () => {
+  const BASE_URL = process.env.GH_PAGES_BASE_URL ?? '/';
+
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: `${BASE_URL}`,
       element: <SignIn />,
     },
 
     {
-      path: "/register",
+      path: `${BASE_URL}register`,
       element: <Register />,
     },
 
     {
-      path: "/signin",
+      path: `${BASE_URL}signin`,
       element: <SignIn />,
     },
 
     {
-      path: "/reset",
+      path: `${BASE_URL}reset`,
       element: <FormReset />,
     },
   ]);
