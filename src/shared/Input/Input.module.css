@@ -1,18 +1,6 @@
-/* .wrapper-input {
-  display: flex;
-  justify-content: space-between;
-  width: 285px;
-  height: 50px;
-  background-color: blue;
-} */
-
-.input-label {
-  display: block;
-  margin: 0 auto;
-  margin-top: 20px;
-  font-size: 10px;
-  font-weight: 600;
-  color: rgb(122, 127, 154);
+.wrapper-input {
+  position: relative;
+  margin-bottom: 21px;
 }
 
 .input-group {
@@ -22,7 +10,6 @@
 }
 
 .input {
-  position: relative;
   border: 1px solid rgba(122, 127, 154, 0.1);
   width: 100%;
   border-top-right-radius: 5px;
@@ -37,6 +24,10 @@
   color: #7a7f9a;
 }
 
+.input:placeholder-shown:focus {
+  box-shadow: 0px 0px 7px 0px rgb(243, 146, 157) inset;
+}
+
 .svg-box {
   text-align: center;
   padding: 13px 8px;
@@ -45,4 +36,21 @@
   background-color: rgba(219, 222, 242, 0.2);
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
+}
+
+/* iconCircl кружок ошибки внутри инпута */
+.iconCircl {
+  position: absolute;
+  top: 40px;
+  right: 9px;
+  /* left: 359px; */
+  fill: red;
+  width: 25px;
+  height: 25px;
+}
+
+/* красный текст ошибки под инпутом */
+.errorTextUnderInput {
+  font-size: 14px;
+  color: #ef476f;
 }

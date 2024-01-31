@@ -1,4 +1,18 @@
 /* стили для Typography */
+.heading {
+  font-size: 21px;
+  font-weight: 600;
+  text-align: center;
+  color: #000;
+}
+
+.text {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  color: #7a7f9a;
+}
+
 .h1 {
   font-weight: 900;
   font-size: 48px;

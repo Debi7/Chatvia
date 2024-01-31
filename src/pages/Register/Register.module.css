@@ -64,6 +64,7 @@
   margin-top: 4px;
 }
 
+/* текст под кнопкой Reset с линком */
 .p {
   font-size: 16px;
   font-weight: 400;
@@ -73,16 +74,9 @@
 .textRef {
   text-decoration: none;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   opacity: 0.7;
   cursor: pointer;
-}
-
-
-/* текст над инпутом */
-.textInput {
-  display: flex;
-  justify-content: space-between;
 }
 
 /* блок инпут */
@@ -106,7 +100,6 @@
   font-size: 14px;
   color: #ef476f;
 }
-
 
 /* footer */
 .wrapper-footer {

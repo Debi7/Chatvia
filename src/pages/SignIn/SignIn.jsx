@@ -1,55 +1,47 @@
-import { Formik } from 'formik';
-import * as Yup from 'yup';
+import { Formik } from "formik";
+import * as Yup from "yup";
 
-import Button from "../../shared/Button/Button.jsx";
-import Input from "../../shared/Input/Input.jsx";
-import Checkbox from "../../shared/Checkbox/Checkbox.jsx";
-import Footer from "../../shared/Footer/Footer.jsx";
-import LogoBlack from "../../shared/LogoBlack/LogoBlack.jsx";
-import Typography from "../../shared/Typography/Typography.jsx";
+import Button from "src/shared/Button/Button.jsx";
+import Input from "src/shared/Input/Input.jsx";
+import Checkbox from "src/shared/Checkbox/Checkbox.jsx";
+import Footer from "src/shared/Footer/Footer.jsx";
+import LogoBlack from "src/shared/LogoBlack/LogoBlack.jsx";
+import Typography from "src/shared/Typography/Typography.jsx";
+
+// import { Button, Input, Checkbox, Footer, LogoBlack, Typography } from 'src/shared';
 
 import { LiaUser } from "react-icons/lia";
 import { CiLock } from "react-icons/ci";
-import { CiCircleAlert } from "react-icons/ci";
 
 import styles from "./SignIn.module.css";
 
-
 const SignIn = () => {
-
   return (
     <div className={styles["wrapper-signin"]}>
       <div className={styles.wrapperImgText}>
         <LogoBlack />
 
-        <Typography
-          tag="h2"
-          className={styles.heading}>
+        <Typography tag="h2" className={styles.heading}>
           {"Sign in"}
         </Typography>
 
-        <Typography
-          tag="p"
-          className={styles.text}>
+        <Typography tag="p" className={styles.text}>
           {"Sign in to continue to Chatvia."}
         </Typography>
       </div>
 
       <div className={styles["wrapper-form"]}>
         <Formik
-          initialValues={{ email: "admin@themesbrand.com", password: '.....' }}
+          initialValues={{ email: "admin@themesbrand.com", password: "....." }}
           validationSchema={Yup.object({
-            firstName: Yup.string()
-              .max(15, 'Must be 15 characters or less')
-              .required('Required'),
-            lastName: Yup.string()
-              .max(20, 'Must be 20 characters or less')
-              .required('Required'),
-            email: Yup.string().email('Invalid email address').required('Required'),
+            email: Yup.string()
+              .email("Incorrect Email format")
+              .required("Please Enter Your Username"),
+            password: Yup.string().required("Please Enter Your Password"),
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
-              console.log(JSON.stringify(values, null, 2));
+              console.log("values", values);
               setSubmitting(false);
             }, 400);
           }}
@@ -65,77 +57,64 @@ const SignIn = () => {
           }) => (
             <form onSubmit={handleSubmit}>
               {/* розовый блок с инфой о невалидности значений из инпутов */}
-              {errors.email && touched.email ? (
+              {!!errors.email &&
+                touched.email &&
+                !!errors.password &&
+                touched.password ? (
                 <div className={styles.errorText}>
-                  <span>Username and password are invalid. Please enter correct username and password</span>
+                  <span>
+                    Username and password are invalid. Please enter correct
+                    username and password
+                  </span>
                 </div>
               ) : null}
 
-              <div className={styles["wrapper-input"]}>
-                <div className={styles.textInput}>
-                  <span>Username</span>
-                </div>
-                <Input
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                  placeholder={"Enter email"}
-                  icons={<LiaUser opacity={"0.6"} />}
-                />
-                {errors.email && touched.email ? (
-                  <CiCircleAlert className={styles.iconCircl} />
-                ) : null}
-                {errors.email && touched.email ? (
-                  <span className={styles.errorTextUnderInput}>Please Enter Your Username</span>
-                ) : null}
-              </div>
+              <Input
+                label="Username"
+                type="email"
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                placeholder={"Enter email"}
+                icons={<LiaUser opacity={"0.6"} />}
+                errors={errors}
+                touched={touched}
+              // errorText={"Please Enter Your Username"}
+              />
 
-              <div className={styles["wrapper-input"]}>
-                <div className={styles.textInput}>
-                  <span>Password</span>
-                  <a
-                    href="/reset"
-                    className={styles.textRef}>
-                    Forgot password?
-                  </a>
-                </div>
-                <Input
-                  ref={console.log}
-                  type="password"
-                  name="password"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.password}
-                  placeholder={"Enter Password"}
-                  icons={<CiLock opacity={"0.9"} />}
-                />
-                {errors.email && touched.email ? (
-                  <CiCircleAlert className={styles.iconCircl} />
-                ) : null}
-                {errors.email && touched.email ? (
-                  <span className={styles.errorTextUnderInput}>Please Enter Your Password</span>
-                ) : null}
+              <div className={styles.textInput}>
+                <a href="/reset" className={styles.textRef}>
+                  Forgot password?
+                  {/* TODO  нет cursor: pointer; ! */}
+                </a>
               </div>
+              <Input
+                label="Password"
+                type="password"
+                name="password"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+                placeholder={"Enter Password"}
+                icons={<CiLock opacity={"0.9"} />}
+                errors={errors}
+                touched={touched}
+              // errorText={"Please Enter Your Password"}
+              />
 
-              <div>
-                <Checkbox
-                  className={styles.checkbox__text}
-                  checkboxText={"Remember me"}
-                />
-              </div>
-              <div>
-                <Button
-                  type={"submit"}
-                  disabled={isSubmitting}
-                  onClick={() => {
-                    console.log("submit", values)
-                  }}
-                  className={styles.btn}>
-                  Sign in
-                </Button>
-              </div>
+              <Checkbox checkboxText={"Remember me"} />
+
+              <Button
+                type={"submit"}
+                disabled={isSubmitting}
+                onClick={() => {
+                  console.log("submit", values);
+                }}
+              >
+                Sign in
+              </Button>
+
             </form>
           )}
         </Formik>
@@ -144,13 +123,12 @@ const SignIn = () => {
       <div>
         <Footer
           href="/register"
-          className={styles["link-footer"]}
           value={"Don't have an account ? "}
           valueRef={"Signup now"}
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SignIn;

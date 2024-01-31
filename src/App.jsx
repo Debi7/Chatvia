@@ -1,9 +1,7 @@
 // import PropTypes from "prop-types";
 
 function App({ children }) {
-  return (
-    children
-  )
+  return children;
 }
 
 // App.propTypes = {
