@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { URLS } from "../../constants/urls.js"
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -108,7 +108,7 @@ const FormReset = () => {
         </div>
         <div>
           <Footer
-            href="/signin"
+            href={URLS.signin}
             value={"Remember It ? "}
             valueRef={"Signin"}
           />

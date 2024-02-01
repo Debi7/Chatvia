@@ -1,3 +1,4 @@
+import { URLS } from "../../constants/urls.js"
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -84,9 +85,8 @@ const SignIn = () => {
               />
 
               <div className={styles.textInput}>
-                <a href="/reset" className={styles.textRef}>
+                <a href={URLS.reset} className={styles.textRef}>
                   Forgot password?
-                  {/* TODO  нет cursor: pointer; ! */}
                 </a>
               </div>
               <Input
@@ -122,7 +122,7 @@ const SignIn = () => {
 
       <div>
         <Footer
-          href="/register"
+          href={URLS.register}
           value={"Don't have an account ? "}
           valueRef={"Signup now"}
         />
