@@ -116,7 +116,7 @@ const Register = () => {
           <span className={styles.p}>
             By registering you agree to the Chatvia{" "}
           </span>
-          <a href="/register" className={styles.textRef}>
+          <a href={URLS.register} className={styles.textRef}>
             Terms of Use
           </a>
         </div>
@@ -124,7 +124,7 @@ const Register = () => {
 
       <div>
         <Footer
-          href="/signin"
+          href={URLS.signin}
           value={"Already have an account ? "}
           valueRef={"Signin"}
         />

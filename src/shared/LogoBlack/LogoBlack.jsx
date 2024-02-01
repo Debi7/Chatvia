@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styles from "../../pages/SignIn/SignIn.module.css";
+import styles from "./logoBlack.module.css";
 import logoSrc from "../../assets/icons/logoBlack.png";
 
 

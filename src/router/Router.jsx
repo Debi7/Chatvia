@@ -2,28 +2,28 @@ import SignIn from "../pages/SignIn/SignIn.jsx";
 import FormReset from "../pages/FormReset/FormReset.jsx";
 import Register from "../pages/Register/Register.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { URLS } from "../constants/urls.js"
 
 const Router = () => {
-  const BASE_URL = process.env.GH_PAGES_BASE_URL ?? '/';
 
   const router = createBrowserRouter([
     {
-      path: `${BASE_URL}`,
+      path: URLS.root,
       element: <SignIn />,
     },
 
     {
-      path: `${BASE_URL}register`,
+      path: URLS.register,
       element: <Register />,
     },
 
     {
-      path: `${BASE_URL}signin`,
+      path: URLS.signin,
       element: <SignIn />,
     },
 
     {
-      path: `${BASE_URL}reset`,
+      path: URLS.reset,
       element: <FormReset />,
     },
   ]);

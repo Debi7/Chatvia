@@ -4,12 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "cross-env HASH=$(git show --no-patch --format=%h) node echo.js",
     "dev": "vite",
-    "build": "cross-env NODE_ENV=production vite --config build/vite.config.js",
+    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "predeploy": "GH_PAGES_BASE_URL=/Chatvia/ npm run build",
+    "predeploy": "cross-env GH_PAGES_BASE_URL=/Chatvia/ npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
