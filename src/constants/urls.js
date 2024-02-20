@@ -5,4 +5,5 @@ export const URLS = {
   register: `${BASE_URL}register`,
   reset: `${BASE_URL}reset`,
   signin: `${BASE_URL}signin`,
+  chat: `${BASE_URL}chat`,
 }

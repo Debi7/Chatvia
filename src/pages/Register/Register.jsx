@@ -1,14 +1,18 @@
+// import { useState } from "react";
 import { URLS } from "../../constants/urls.js"
 import { Formik } from "formik";
 import * as Yup from "yup";
+import axios from 'axios';
 
-import Button from "src/shared/Button/Button.jsx";
-import Input from "src/shared/Input/Input.jsx";
-import Footer from "src/shared/Footer/Footer.jsx";
-import LogoBlack from "src/shared/LogoBlack/LogoBlack.jsx";
-import Typography from "src/shared/Typography/Typography.jsx";
+// import { BASE_API_URL } from "../../api/requests.js"
 
-// import { Button, Input, Footer, LogoBlack, Typography } from 'src/shared';
+// import Button from "src/shared/Button/Button.jsx";
+// import Input from "src/shared/Input/Input.jsx";
+// import Footer from "src/shared/Footer/Footer.jsx";
+// import LogoBlack from "src/shared/LogoBlack/LogoBlack.jsx";
+// import Typography from "src/shared/Typography/Typography.jsx";
+
+import { Button, Input, Footer, LogoBlack, Typography } from 'src/shared';
 
 import { MdOutlineMailOutline } from "react-icons/md";
 import { LiaUser } from "react-icons/lia";
@@ -17,6 +21,18 @@ import { CiLock } from "react-icons/ci";
 import styles from "./Register.module.css";
 
 const Register = () => {
+  // const [quote, setQuote] = useState('');
+
+  // const registration = () => {
+  //   axios.get(`${BASE_API_URL}/api/v1/Auth/registration`)
+  //     .then(res => {
+  //       console.log(res.data.values)
+  //       setQuote(res.data.values)
+  //     })
+  //     .catch(err => console.log(err));
+  // }
+
+
   return (
     <div className={styles["wrapper-register"]}>
       <div className={styles.wrapperImgText}>
@@ -104,8 +120,11 @@ const Register = () => {
                 type={"submit"}
                 disabled={isSubmitting}
                 onClick={() => {
+                  axios.post("https://chatvia-chat.up.railway.app/api/v1/Auth/registration", values)
+                  // registration
                   console.log("submit", values);
-                }}
+                }
+                }
               >
                 Register
               </Button>
