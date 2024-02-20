@@ -1,6 +1,8 @@
 import { URLS } from "../../constants/urls.js"
 import { Formik } from "formik";
+import { useNavigate } from 'react-router-dom';
 import * as Yup from "yup";
+// import axios from 'axios';
 
 import Button from "src/shared/Button/Button.jsx";
 import Input from "src/shared/Input/Input.jsx";
@@ -17,6 +19,7 @@ import { CiLock } from "react-icons/ci";
 import styles from "./SignIn.module.css";
 
 const SignIn = () => {
+  const navigate = useNavigate();
   return (
     <div className={styles["wrapper-signin"]}>
       <div className={styles.wrapperImgText}>
@@ -109,7 +112,12 @@ const SignIn = () => {
                 type={"submit"}
                 disabled={isSubmitting}
                 onClick={() => {
-                  console.log("submit", values);
+                  {
+                    !errors.email && touched.email &&
+                      !errors.password && touched.password
+                      ? navigate(URLS.chat, { replace: false })
+                      : null
+                  }
                 }}
               >
                 Sign in
