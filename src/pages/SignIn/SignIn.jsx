@@ -1,5 +1,6 @@
 import { URLS } from "../../constants/urls.js"
 import { Formik } from "formik";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import * as Yup from "yup";
 // import axios from 'axios';
@@ -20,6 +21,14 @@ import styles from "./SignIn.module.css";
 
 const SignIn = () => {
   const navigate = useNavigate();
+
+  const [checked, setChecked] = useState(true);
+
+  const handleChangeChecked = () => {
+    setChecked((checked) => !checked)
+    console.log(checked)
+  }
+
   return (
     <div className={styles["wrapper-signin"]}>
       <div className={styles.wrapperImgText}>
@@ -84,7 +93,6 @@ const SignIn = () => {
                 icons={<LiaUser opacity={"0.6"} />}
                 errors={errors}
                 touched={touched}
-              // errorText={"Please Enter Your Username"}
               />
 
               <div className={styles.textInput}>
@@ -103,10 +111,13 @@ const SignIn = () => {
                 icons={<CiLock opacity={"0.9"} />}
                 errors={errors}
                 touched={touched}
-              // errorText={"Please Enter Your Password"}
               />
 
-              <Checkbox checkboxText={"Remember me"} />
+              <Checkbox
+                checkboxText={"Remember me"}
+                onChange={handleChangeChecked}
+              // ref={(c) => c.refs.field}
+              />
 
               <Button
                 type={"submit"}
@@ -115,7 +126,11 @@ const SignIn = () => {
                   {
                     !errors.email && touched.email &&
                       !errors.password && touched.password
-                      ? navigate(URLS.chat, { replace: false })
+                      ? axios.post("https://chatvia-chat.up.railway.app/api/v1/Auth/login", {
+                        EMAIL: values.email,
+                        PASSWORD: values.password,
+                        REMEMBER_TOKEN: checked,
+                      }) && navigate(URLS.chat, { replace: false })
                       : null
                   }
                 }}

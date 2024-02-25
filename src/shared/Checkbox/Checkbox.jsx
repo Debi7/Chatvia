@@ -8,7 +8,12 @@ const Checkbox = (props) => {
   return (
     <>
       <label>
-        <input {...rest} type="checkbox" className={clsx(styles["checkbox"])} />
+        <input {...rest}
+          type="checkbox"
+          className={clsx(styles["checkbox"])}
+        // ref="field"
+        // onChange={onChange}
+        />
       </label>
       <span className={clsx(styles["checkbox__text"])}>{checkboxText}</span>
     </>
@@ -17,6 +22,7 @@ const Checkbox = (props) => {
 
 Checkbox.propTypes = {
   onClick: PropTypes.func,
+  onChange: PropTypes.func,
   className: PropTypes.string,
   label: PropTypes.string,
   checkboxText: PropTypes.string,
