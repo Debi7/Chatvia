@@ -120,8 +120,11 @@ const Register = () => {
                 type={"submit"}
                 disabled={isSubmitting}
                 onClick={() => {
-                  axios.post("https://chatvia-chat.up.railway.app/api/v1/Auth/registration", values)
-                  // registration
+                  axios.post("https://chatvia-chat.up.railway.app/api/v1/Auth/registration", {
+                    EMAIL: values.email,
+                    USERNAME: values.username,
+                    PASSWORD: values.password,
+                  })
                   console.log("submit", values);
                 }
                 }

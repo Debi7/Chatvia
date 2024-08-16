@@ -38,8 +38,8 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   icons: PropTypes.node,
   name: PropTypes.string,
-  errors: PropTypes.string,
-  touched: PropTypes.string,
+  errors: PropTypes.object,
+  touched: PropTypes.bool,
   errorText: PropTypes.string
 };
 
