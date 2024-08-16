@@ -132,7 +132,7 @@ const SignIn = () => {
               <Checkbox
                 checkboxText={"Remember me"}
                 onChange={handleChangeChecked}
-              // ref={(c) => c.refs.field}
+                ref={(c) => c.refs.field}
               />
 
               <Button
