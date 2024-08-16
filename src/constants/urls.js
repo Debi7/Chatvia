@@ -1,4 +1,4 @@
-const BASE_URL = process.env.GH_PAGES_BASE_URL ?? "/"
+const BASE_URL = process.env.GH_PAGES_BASE_URL ?? ""
 
 export const URLS = {
   root: `${BASE_URL}#/`,
