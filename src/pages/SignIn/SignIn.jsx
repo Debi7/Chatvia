@@ -51,7 +51,6 @@ const SignIn = () => {
               .email("Incorrect Email format")
               .required("Please Enter Your Username"),
             password: Yup.string().required("Please Enter Your Password"),
-            remember: checked,
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
